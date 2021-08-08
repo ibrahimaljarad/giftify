@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 
-export default function SignIn() {
+export default function SignIn({ handleFetch }) {
 
   const [user, setUser] = useState({
     email: "",
@@ -24,7 +24,7 @@ export default function SignIn() {
     };
     try {
       const fetchResponse = await fetch(
-        `http://localhost:3001/sign-in`,
+        `http://localhost:3000/sign-in`,
         settings
       );
       const data = await fetchResponse.json();

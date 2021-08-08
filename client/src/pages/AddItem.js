@@ -1,9 +1,53 @@
 import React from 'react';
 import Dropzone from 'react-dropzone';
 import ImgDropzone from '../components/ImgDropzone';
+import { useState, useEffect } from "react";
 
 
-export default function AddItem() {
+export default function AddItem(userData) {
+  const [gift, setGift] = useState({
+    title: "",
+    imgUrl: "",
+    description: "",
+  });
+  const [gifts, setGifts] = useState(null);
+  const handlChange = (e) => {
+    setGift({ ...gift, [e.target.name]: e.target.value });
+  };
+  useEffect(() => {
+    const fetchGifts = async () => {
+      const data = await fetch("http://localhost:3000/get-gifts", {
+        headers: {
+          Authorization: `somesupersecretsecret ${userData.token}`,
+        },
+      });
+      const gifts = await data.json();
+      setGifts(gifts);
+    };
+    fetchGifts();
+  }, []);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const settings = {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${userData.token}`,
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(gift),
+    };
+    try {
+      const fetchResponse = await fetch(
+        `http://localhost:3000/add-gifts`,
+        settings
+      );
+      const data = await fetchResponse.json();
+      return data;
+    } catch (e) {
+      return e;
+    }
+  };
     return (
         <div className="h-screen flex flex-col justify-center items-center">
         <h1 className="lg:text-2xl md:text-xl sm:text-l text-md font-black mb-14">ADD YOUR DONATION</h1>
