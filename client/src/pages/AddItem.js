@@ -16,7 +16,7 @@ export default function AddItem(userData) {
   };
   useEffect(() => {
     const fetchGifts = async () => {
-      const data = await fetch("http://localhost:3000/get-gifts", {
+      const data = await fetch("http://localhost:3001/get-gifts", {
         headers: {
           Authorization: `somesupersecretsecret ${userData.token}`,
         },
@@ -51,16 +51,18 @@ export default function AddItem(userData) {
     return (
         <div className="h-screen flex flex-col justify-center items-center">
         <h1 className="lg:text-2xl md:text-xl sm:text-l text-md font-black mb-14">ADD YOUR DONATION</h1>
-          <form style={{backgroundColor:'#FCD299'}} className="w-1/3 shadow-md rounded px-8 pt-6 pb-8 mb-4">
+          <form style={{backgroundColor:'#FCD299'}} className="w-1/3 shadow-md rounded px-8 pt-6 pb-8 mb-4" onSubmit={handleSubmit}>
           <div className="mb-4">
   <label className="text-left block text-gray-700 text-md font-bold mb-2" for="title">
     Title
   </label>
-  <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="title" type="text" placeholder="Title" />
+  <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="title" type="text" placeholder="Title" value={gift.title}
+                  onChange={handlChange}/>
 </div>
 <div className="mb-4">
 <label className="text-left block text-gray-700 text-md font-bold mb-2" for="description">Description</label>
-<textarea id="about" name="about" rows="3" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Desscription"></textarea>
+<textarea id="about" name="about" rows="3" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Desscription" value={gift.description}
+                  onChange={handlChange}></textarea>
 
 </div>
 <div className="mb-4">
@@ -71,7 +73,8 @@ export default function AddItem(userData) {
 </div>
 <div className="mb-4">
     <label className="text-left block text-gray-700 text-md font-bold mb-2" id="drapzone">Upload Image</label>
-    <ImgDropzone />
+    <ImgDropzone value={gift.imageUrl}
+                  onChange={handlChange}/>
 </div>
                   
 <div className="flex items-center justify-between">
