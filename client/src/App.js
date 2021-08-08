@@ -14,6 +14,7 @@ import './index.css';
 
 
 function App() {
+  const [userData, setUserData] = useState({});
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => {
@@ -39,9 +40,9 @@ function App() {
       <Navbar toggle={toggle} />
       <Dropdown isOpen={isOpen} toggle={toggle} />
       <Switch>
-        <Route path='/' exact component={Home} />
-        <Route path='/signin' component={SignIn} />
-        <Route path='/signup' component={SignUp} />
+        <Route path='/' exact component={Home} {...userData}/>
+        <Route path='/signin' component={SignIn} handleFetch={setUserData}  />
+        <Route path='/signup' component={SignUp} handleFetch={setUserData} />
         <Route path='/add-item' component={AddItem} />
       </Switch>
       <Footer />

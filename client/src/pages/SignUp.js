@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 
-export default function SignUp() {
+export default function SignUp({ handleFetch }) {
   const [user, setUser] = useState({
     email: "",
     password: "",
