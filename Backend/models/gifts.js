@@ -4,26 +4,32 @@ const db = require("../util/database");
 const Gifts = db.define(
   "gifts",
   {
-   
-    id: {
+      id: {
       type: DataTypes.INTEGER,
       autoIncrement: true,
       primaryKey: true,
-    },
-    title: {
+      },
+      title: {
       type: DataTypes.STRING,
       allowNull: false,
-    },
-    imgUrl: {
+      },
+      description: {
       type: DataTypes.STRING,
-    },
-    description: {
+      allowNull: false,
+      },
+      imgUrl: {
       type: DataTypes.STRING,
-    },
+      allowNull: false,
+      },
+      location: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      },
   },
   {
-    freezeTableName: true,
+      freezeTableName: true,
   }
 );
 
 module.exports = Gifts;
+

@@ -6,7 +6,6 @@ const bcrypt = require("bcrypt");
 const User = db.define(
   "User",
   {
-   
     id: {
       type: DataTypes.INTEGER,
       autoIncrement: true,

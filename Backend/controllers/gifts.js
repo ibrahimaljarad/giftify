@@ -11,7 +11,7 @@ exports.postAddGifts = (req, res, next) => {
     User.findOne({ where: { id: req.userId } })
     .then((user) => {
         console.log("hey");
-        user.createGifts();({ title, imgUrl, description, loacation });
+        user.createGift({ title, description, imgUrl,  location });
     })
     .then((results) => res.send("Gift is created succesfully"))
     .catch((err) => console.log(err));
@@ -24,9 +24,15 @@ exports.getGifts = (req, res, next) => {
   .catch((err) => console.log(err));
 };
 
-exports.deleteGift = async (req, res, next) => {
-  Gift.findOne({ where: { id: req.body.id } })
-  .then((gifts) => gifts.deleteGift(id))
-  .then((result) => res.send(result))
+exports.getAllGifts = async (req, res, next) => {
+  const gifts = await Gifts.findAll();
+  console.log(req.gift);
+  res.send(gifts);
+};
+
+exports.deleteGift = (req, res, next) => {
+  console.log(req.body.id);
+  Gifts.destroy({ where: {id: req.body.id } })
+  .then((result) => res.send("deleted"))
   .catch((err) => console.log(err));
 };
