@@ -9,6 +9,7 @@ export default function AddItem(userData) {
     title: "",
     imgUrl: "",
     description: "",
+    loaction:""
   });
   const [gifts, setGifts] = useState(null);
   const handlChange = (e) => {
@@ -39,7 +40,7 @@ export default function AddItem(userData) {
     };
     try {
       const fetchResponse = await fetch(
-        `http://localhost:3000/add-gifts`,
+        `http://localhost:3001/add-gifts`,
         settings
       );
       const data = await fetchResponse.json();
@@ -56,12 +57,20 @@ export default function AddItem(userData) {
   <label className="text-left block text-gray-700 text-md font-bold mb-2" for="title">
     Title
   </label>
-  <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="title" type="text" placeholder="Title" value={gift.title}
-                  onChange={handlChange}/>
+  <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+         id="title"
+         name="title" 
+         type="text" 
+         placeholder="Title" 
+         value={gift.title}
+         onChange={handlChange}/>
 </div>
 <div className="mb-4">
 <label className="text-left block text-gray-700 text-md font-bold mb-2" for="description">Description</label>
-<textarea id="about" name="about" rows="3" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Desscription" value={gift.description}
+<textarea rows="3" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Desscription" value={gift.description}
+                  id="description"
+                  name="description"
+                  type="text"
                   onChange={handlChange}></textarea>
 
 </div>
@@ -69,7 +78,11 @@ export default function AddItem(userData) {
   <label className="text-left block text-gray-700 text-md font-bold mb-2" for="location">
     Location
   </label>
-  <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="loaction" type="text" placeholder="Loaction" />
+  <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+         id="loaction" 
+         name="location"
+         type="text" 
+         placeholder="Loaction" />
 </div>
 <div className="mb-4">
     <label className="text-left block text-gray-700 text-md font-bold mb-2" id="drapzone">Upload Image</label>

@@ -28,19 +28,13 @@ export default function Navbar({toggle}) {
           </svg>
         </div>
         <div className='pr-8 md:block  hidden'>
-          {/* <Link to='/' className='p-4'>
-            Home
-          </Link>
-          <Link to='/menu' className='p-4'>
-            Menu
-          </Link> */}
-          <Link to='/signin' className='p-4'>
+    
+          <Link to='/sign-in' className='p-4'>
             <button className="font-bold text-black text-md border border-green-400 bg-transparent py-2 px-4 rounded-lg shadow-md hover:shadow-lg transition duration-500 transform-gpu hover:scale-110">
             Sign in
             </button>
           </Link>
-          <Link to='/signup' className='p-4'>
-           
+          <Link to="/sign-up" className='p-4'>
              <button className="font-bold  text-white text-md  bg-green-400 py-2 px-4 rounded-lg shadow-md hover:shadow-lg transition duration-500 transform-gpu hover:scale-110">
                 Sign up
              </button>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Switch, Route } from 'react-router-dom';
+import {Route, Switch } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
 import Dropdown from './components/Dropdown';
@@ -39,12 +39,28 @@ function App() {
     <div className="App">
       <Navbar toggle={toggle} />
       <Dropdown isOpen={isOpen} toggle={toggle} />
-      <Switch>
+      {/* <Switch>
         <Route path='/' exact component={Home} {...userData}/>
         <Route path='/signin' component={SignIn} handleFetch={setUserData}  />
         <Route path='/signup' component={SignUp} handleFetch={setUserData} />
         <Route path='/add-item' component={AddItem} />
+      */}
+      
+      <Switch> 
+      <Route exact path='/'>
+        <Home {...userData} />
+      </Route>
+      <Route path='/sign-in'>
+        <SignIn handleFetch={setUserData} />
+      </Route>
+      <Route exact path='/sign-up'>
+        <SignUp handleFetch={setUserData} />
+      </Route>
+      <Route path='/add-item'>
+        <AddItem />
+      </Route>
       </Switch>
+ 
       <Footer />
     </div>
   );
