@@ -40,31 +40,60 @@ export default function SignUp({ handleFetch }) {
     return (
         <div className="h-screen flex flex-col justify-center items-center">
         <h1 className="lg:text-2xl md:text-xl sm:text-l text-md font-black mb-14">SIGN UP TO GIFTIFY</h1>
-          <form className="w-1/3 bg-green-50 shadow-md rounded px-8 pt-6 pb-8 mb-4" onSubmit={handlSingUn}>
+          <form className="w-1/3 bg-green-50 shadow-md rounded px-8 pt-6 pb-8 mb-4" 
+                onSubmit={handlSingUn}>
           <div className="mb-4">
-  <label className="text-left block text-gray-700 text-md font-bold mb-2" for="fullname">
-    Fullname
+  <label className="text-left block text-gray-700 text-md font-bold mb-2">
+    First Name
   </label>
-  <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="fullname" type="text" placeholder="Fullname"  value={user.firstName}
- onChange={handlChange}/>
+  <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+         id="fullname" 
+         type="text" 
+         name='firstName'
+         placeholder="First name"  
+         value={user.firstName}
+         onChange={handlChange}/>
 </div>
 <div className="mb-4">
-  <label className="text-left block text-gray-700 text-md font-bold mb-2" for="email">
+  <label className="text-left block text-gray-700 text-md font-bold mb-2">
+    Last Name
+  </label>
+  <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+         id="lastname" 
+         type="text"
+         name="lastName" 
+         placeholder="last name"  
+         value={user.lastName}
+         onChange={handlChange}/>
+</div>
+<div className="mb-4">
+  <label className="text-left block text-gray-700 text-md font-bold mb-2" >
     Email
   </label>
-  <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="email" type="text" placeholder="Email"   value={user.email}
-              onChange={handlChange}/>
+  <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+         id="email" 
+         type="text" 
+         name="email"
+         placeholder="Email"   
+         value={user.email}
+         onChange={handlChange}/>
 </div>
 <div className="mb-6">
-  <label class="text-left block text-gray-700 text-md font-bold mb-2" for="password">
+  <label class="text-left block text-gray-700 text-md font-bold mb-2" >
     Password
   </label>
-  <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="******************"  value={user.password}
-              onChange={handlChange}/>
+  <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" 
+         id="password" 
+         type="password" 
+         name="password"
+         placeholder="********"  
+         value={user.password}
+         onChange={handlChange}/>
 
 </div>
 <div className="flex items-center justify-between">
-  <button className="w-full bg-green-400 hover:bg-green-300 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+  <button className="w-full bg-green-400 hover:bg-green-300 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" 
+          type="submit">
     Sign Up
   </button>
 </div>
