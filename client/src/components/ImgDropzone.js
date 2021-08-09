@@ -1,7 +1,7 @@
 import React, {useCallback} from 'react';
 import { useDropzone } from 'react-dropzone';
 
-export default function ImgDropzone(handlChange) {
+export default function ImgDropzone({handlChange}) {
     const {acceptedFiles, getRootProps, getInputProps} = useDropzone();
 
     

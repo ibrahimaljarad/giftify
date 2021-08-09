@@ -57,7 +57,7 @@ function App() {
         <SignUp handleFetch={setUserData} />
       </Route>
       <Route path='/add-item'>
-        <AddItem />
+        <AddItem userData={userData}/>
       </Route>
       </Switch>
  
