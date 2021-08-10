@@ -17,7 +17,7 @@ exports.postAddGifts = (req, res, next) => {
     .catch((err) => console.log(err));
 };
 
-exports.getGifts = (req, res, next) => {
+exports.getGift = (req, res, next) => {
   User.findOne({ where: { id: req.userId } })
   .then((user) => user.getGifts())
   .then((result) => res.send(result))

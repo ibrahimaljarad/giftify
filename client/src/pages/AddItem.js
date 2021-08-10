@@ -19,7 +19,7 @@ export default function AddItem({userData}) {
   useEffect(() => {
     console.log(userData)
     const fetchGifts = async () => {
-      const data = await fetch("http://localhost:3001/get-gifts", {
+      const data = await fetch("http://localhost:8000/get-gifts", {
         headers: {
           Authorization: `somesupersecretsecret ${userData.token}`,
         },
@@ -43,7 +43,7 @@ export default function AddItem({userData}) {
     };
     try {
       const fetchResponse = await fetch(
-        `http://localhost:3001/add-gifts`,
+        `http://localhost:8000/add-gifts`,
         settings
       );
       const data = await fetchResponse.json();

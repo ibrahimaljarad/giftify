@@ -48,7 +48,7 @@ function App() {
       
       <Switch> 
       <Route exact path='/'>
-        <Home {...userData} />
+        <Home />
       </Route>
       <Route path='/sign-in'>
         <SignIn handleFetch={setUserData} />

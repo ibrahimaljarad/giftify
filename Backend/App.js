@@ -1,6 +1,10 @@
 const express = require("express");
 const app = express();
-const port = 3001;
+const port = 8000;
+
+var cors = require('cors');
+
+
 
 const session = require("express-session");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
@@ -37,6 +41,7 @@ app.use(
 );
 
 app.use((req, res, next) => {
+  
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader(
     "Access-Control-Allow-Methods",
@@ -45,6 +50,9 @@ app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
   next();
 });
+
+
+
 
 
 app.use(giftsRouter);
@@ -60,3 +68,5 @@ db.sync()
     });
   })
   .catch((err) => console.log(err));
+
+  app.use(cors());

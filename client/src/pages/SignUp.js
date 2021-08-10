@@ -25,7 +25,7 @@ export default function SignUp({ handleFetch }) {
     };
     try {
       const fetchResponse = await fetch(
-        `http://localhost:3001/sign-up`,
+        `http://localhost:8000/sign-up`,
         settings
       );
       const data = await fetchResponse.json();
