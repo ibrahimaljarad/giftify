@@ -2,7 +2,7 @@ import React from 'react';
 import Dropzone from 'react-dropzone';
 import ImgDropzone from '../components/ImgDropzone';
 import { useState, useEffect } from "react";
-
+import { useHistory } from "react-router-dom";
 
 export default function AddItem({userData}) {
   const [gift, setGift] = useState({
@@ -32,9 +32,12 @@ export default function AddItem({userData}) {
     fetchGifts();
    
   }, []);
+  const history = useHistory();
   
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
+    history.push("/");
     const settings = {
       method: "POST",
       headers: {
@@ -55,6 +58,7 @@ export default function AddItem({userData}) {
       return e;
     }
   };
+  
 
     return (
         <div className="h-screen flex flex-col justify-center items-center">
@@ -85,7 +89,7 @@ export default function AddItem({userData}) {
 
 
 </div>
-{/* <div className="mb-4">
+<div className="mb-4">
   <label className="text-left block text-gray-700 text-md font-bold mb-2" for="location">
     Location
   </label>
@@ -94,7 +98,7 @@ export default function AddItem({userData}) {
          name="location"
          type="text" 
          placeholder="Loaction" />
-</div> */}
+</div>
 {/* <div className="mb-4">
     <label className="text-left block text-gray-700 text-md font-bold mb-2" id="drapzone">Upload Image</label>
     
