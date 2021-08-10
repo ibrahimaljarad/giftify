@@ -23,13 +23,16 @@ export default function AddItem({userData}) {
         headers: {
           Authorization: `somesupersecretsecret ${userData.token}`,
         },
+        
       });
       const gifts = await data.json();
+      
       setGifts(gifts);
     };
     fetchGifts();
+   
   }, []);
-
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     const settings = {
