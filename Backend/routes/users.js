@@ -17,5 +17,6 @@ router.post(
   }),
   usersControllers.postSignIn
 );
+router.get("/get-donor-info",usersControllers.getDonorInfo);
 
 module.exports = router;

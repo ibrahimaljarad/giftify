@@ -25,6 +25,10 @@ const Gifts = db.define(
       type: DataTypes.STRING,
       allowNull: false,
       },
+      isDonated: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+        },
   },
   {
       freezeTableName: true,

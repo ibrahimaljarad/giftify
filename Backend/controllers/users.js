@@ -6,9 +6,22 @@ exports.getUsers = async (req, res, next) => {
   console.log(req.user);
   res.send(users);
 };
+
 exports.getAddUser = (req, res, next) => {
   res.render("add-user.ejs");
 };
+
+exports.getDonorInfo = async (req, res, next) => {
+  const user = await User.findOne({ where: { id: req.body.UserId } })
+  console.log(req.user);
+  res.send(user);
+};
+// exports.getDonorInfo = (req, res, next) => {
+//   console.log(req.body)
+//   User.findOne({ where: { id: req.gift.UserId } })
+//   .then((result) => res.send(result))
+//   .catch((err) => console.log(err));
+// };
 
 exports.postSignUp = async (req, res, next) => {
   console.log(req.body);
