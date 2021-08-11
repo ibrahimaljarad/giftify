@@ -28,7 +28,7 @@ export default function Navbar({toggle}) {
           </svg>
         </div>
         <div className='pr-8 md:block  hidden'>
-    
+           <Link to="/items">items</Link>
           <Link to='/sign-in' className='p-4'>
             <button className="font-bold text-black text-md border border-green-400 bg-transparent py-2 px-4 rounded-lg shadow-md hover:shadow-lg transition duration-500 transform-gpu hover:scale-110">
             Sign in

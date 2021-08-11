@@ -94,10 +94,22 @@ export default function AddItem({userData}) {
     Location
   </label>
   <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
-         id="loaction" 
+         id="location" 
          name="location"
          type="text" 
-         placeholder="Loaction" />
+         placeholder="Location"
+         onChange={handlChange} />
+</div>
+<div className="mb-4">
+  <label className="text-left block text-gray-700 text-md font-bold mb-2" for="location">
+    image URL
+  </label>
+  <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+         id="loaction" 
+         name="imgUrl"
+         type="text" 
+         placeholder="imgUrl"
+         onChange={handlChange} />
 </div>
 {/* <div className="mb-4">
     <label className="text-left block text-gray-700 text-md font-bold mb-2" id="drapzone">Upload Image</label>
