@@ -1,7 +1,40 @@
 
-import React from 'react'
+import React, {useState} from 'react';
 
-export default function Card({gift}) {
+export default function Card({gift, userData}) {
+const [requestBtnText,setRequestBtnText]=useState('request')
+
+const [donorInfo, setDonorInfo]=useState([])
+
+// const fetchDonorInfo = async (e) => {
+//   console.log(JSON.stringify(gift.UserId))
+//   const settings = {
+//     method: "GET",
+//     headers: {
+//       Accept: "application/json",
+//       "Content-Type": "application/json",
+//     },
+//     body: JSON.stringify(gift.UserId),
+//   };
+//   try {
+//     const fetchResponse = await fetch(
+//       `http://localhost:8000/get-donor-info`,
+//       settings
+//     );
+//     const data = await fetchResponse.json();
+//     console.log(data);
+//     setDonorInfo(data);
+//     return data;
+//   } catch (e) {
+//     return e;
+//   }
+// };
+
+  const handleRequest = () => {
+    console.log(donorInfo)
+    setRequestBtnText('requested')
+    //fetchDonorInfo()
+  }
     return (
         <div>
   <div className="container mx-auto mt-12 p-9 bg-white max-w-sm rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition duration-300">
@@ -17,7 +50,16 @@ export default function Card({gift}) {
         
       </div>
       <div>
-        <button className="text-white text-md font-semibold bg-green-400 py-2 px-4 rounded-lg shadow-md hover:shadow-lg transition duration-500 transform-gpu hover:scale-110 ">Request </button>
+        {userData.firstName && gift.UserId!==userData.userId?
+        <button className="text-white text-md font-semibold bg-green-400 py-2 px-4 rounded-lg shadow-md hover:shadow-lg transition duration-500 transform-gpu hover:scale-110 "
+                onClick={handleRequest} >
+                    {requestBtnText}
+         </button> : 
+         <button  className="cursor-not-allowed text-white text-md  bg-green-200 font-semibold  py-2 px-4 rounded-lg shadow-md hover:shadow-lg transition duration-500 transform-gpu" >
+          {gift.UserId===userData.userId? "My Donation":"Request"}
+         </button>
+         
+         }
       </div>
     </div>
     <p className="mt-5 text-left text-gray-700 tracking-wide">{gift.description}</p>

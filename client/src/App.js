@@ -38,7 +38,7 @@ function App() {
   });
   return (
     <div className="App">
-      <Navbar toggle={toggle} />
+      <Navbar toggle={toggle} userData={userData} />
       <Dropdown isOpen={isOpen} toggle={toggle} />
       {/* <Switch>
         <Route path='/' exact component={Home} {...userData}/>
