@@ -4,7 +4,7 @@ import React, {useState} from 'react';
 export default function Card({gift, userData}) {
 const [requestBtnText,setRequestBtnText]=useState('request')
 
-const [donorInfo, setDonorInfo]=useState([])
+//const [donorInfo, setDonorInfo]=useState({id:null})
 
 // const fetchDonorInfo = async (e) => {
 //   console.log(JSON.stringify(gift.UserId))
@@ -14,7 +14,7 @@ const [donorInfo, setDonorInfo]=useState([])
 //       Accept: "application/json",
 //       "Content-Type": "application/json",
 //     },
-//     body: JSON.stringify(gift.UserId),
+//     body: JSON.stringify({id:gift.UserId}),
 //   };
 //   try {
 //     const fetchResponse = await fetch(
@@ -22,16 +22,17 @@ const [donorInfo, setDonorInfo]=useState([])
 //       settings
 //     );
 //     const data = await fetchResponse.json();
-//     console.log(data);
-//     setDonorInfo(data);
+//     console.log('data',data);
+//     //setDonorInfo(data);
 //     return data;
 //   } catch (e) {
 //     return e;
 //   }
 // };
 
+
   const handleRequest = () => {
-    console.log(donorInfo)
+    //console.log(donorInfo)
     setRequestBtnText('requested')
     //fetchDonorInfo()
   }
