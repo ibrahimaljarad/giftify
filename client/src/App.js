@@ -8,6 +8,7 @@ import Home from './pages/Home'
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
 import AddItem from './pages/AddItem';
+import Items from './pages/Items';
 
 import './App.css';
 import './index.css';
@@ -58,6 +59,9 @@ function App() {
       </Route>
       <Route path='/add-item'>
         <AddItem userData={userData}/>
+      </Route>
+      <Route path='/items'>
+        <Items userData={userData} />
       </Route>
       </Switch>
  

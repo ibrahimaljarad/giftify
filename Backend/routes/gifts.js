@@ -7,7 +7,7 @@ const giftsControllers = require("../controllers/gifts");
 
 router.post("/add-gifts", isAuth, giftsControllers.postAddGifts);
 router.get("/get-gifts", isAuth, giftsControllers.getGift);
-router.get("/get-all-gift", isAuth, giftsControllers.getAllGifts);
+router.get("/get-all-gift", giftsControllers.getAllGifts);
 router.delete("/delete", isAuth, giftsControllers.deleteGift);
 
 module.exports = router;
